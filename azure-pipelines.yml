@@ -38,10 +38,10 @@ stages:
         artifactName: 'lambda-function'
         publishLocation: 'Container'
 
-# - stage: Test
-#   jobs:
-#   - job: TestJob
-#     steps:
-#     - script: |
-#         pytest
-#       displayName: 'Run tests'
+- stage: Test
+  jobs:
+  - job: TestJob
+    steps:
+    - script: |
+        pytest
+      displayName: 'Run tests'
