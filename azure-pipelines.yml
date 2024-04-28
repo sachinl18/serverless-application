@@ -19,10 +19,10 @@ stages:
         python3 --version
       displayName: 'Show Python version'
 
-    # - script: |
-    #     python3 -m pip install --upgrade pip
-    #     pip install -r requirements.txt
-    #   displayName: 'Install dependencies'
+    - script: |
+        python3 -m pip install --upgrade pip
+        pip install -r requirements.txt
+      displayName: 'Install dependencies'
 
     - task: ArchiveFiles@2
       inputs:
