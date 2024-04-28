@@ -7,7 +7,6 @@ import json
 #         'body': json.dumps('Hello from Lambda! This function has been deployed using Azure DevOps')
 #     }
 import logging
-import numpy as np
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -23,15 +22,19 @@ def lambda_handler(event, context):
         nums = [float(num) for num in numbers]
 
         if operation == 'add':
-            result = np.sum(nums)
+            result = sum(nums)
         elif operation == 'subtract':
-            result = nums[0] - np.sum(nums[1:])
+            result = nums[0] - sum(nums[1:])
         elif operation == 'multiply':
-            result = np.prod(nums)
+            result = 1
+            for num in nums:
+                result *= num
         elif operation == 'divide':
             if 0 in nums[1:]:
                 raise ValueError("Division by zero is not allowed")
-            result = nums[0] / np.prod(nums[1:])
+            result = nums[0]
+            for num in nums[1:]:
+                result /= num
         else:
             raise ValueError("Unsupported operation")
 
