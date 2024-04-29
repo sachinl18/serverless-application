@@ -24,6 +24,11 @@ stages:
         pip3 install -r requirements.txt
       displayName: 'Install dependencies'
 
+    - script: |
+        sudo apt-get update
+        sudo apt-get install -y zip
+      displayName: 'Install zip'
+
     - task: ArchiveFiles@2
       inputs:
         rootFolderOrFile: '$(Build.DefaultWorkingDirectory)'
