@@ -24,13 +24,7 @@ stages:
         pip3 install -r requirements.txt
       displayName: 'Install dependencies'
 
-    - task: ArchiveFiles@2
-      inputs:
-        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-        includeRootFolder: false
-        archiveType: 'zip'
-        archiveFile: '$(build.artifactstagingdirectory)/lambda-function.zip'
-      displayName: 'Archive files'
+    
 
     - task: PublishBuildArtifacts@1
       inputs:
